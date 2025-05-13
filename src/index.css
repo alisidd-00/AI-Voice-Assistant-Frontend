@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-dark: linear-gradient(to bottom right, #0f172a, #1e293b);
+  --background-light: linear-gradient(to bottom right, #f1f5f9, #e2e8f0);
+  --scrollbar-track-dark: rgba(0, 0, 0, 0.1);
+  --scrollbar-track-light: rgba(0, 0, 0, 0.05);
+  --scrollbar-thumb-dark: rgba(255, 255, 255, 0.1);
+  --scrollbar-thumb-light: rgba(0, 0, 0, 0.1);
+  --scrollbar-thumb-hover-dark: rgba(255, 255, 255, 0.2);
+  --scrollbar-thumb-hover-light: rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode (default) */
+.dark body {
+  color-scheme: dark;
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background-dark);
+  color: #ffffff;
+}
+
+/* Light mode */
+.light body {
+  color-scheme: light;
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background-light);
+  color: #334155;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-dark);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-dark);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-dark);
+}
+
+/* Custom scrollbar for light mode */
+.light ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-light);
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-light);
+  border-radius: 4px;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-light);
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+/* Apply transitions to specific properties only */
+html, body, div, nav, main, section, article, aside, header, footer {
+  transition: background 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+/* Remove transitions from certain elements that don't need them */
+button svg, a svg, .icon, img {
+  transition: none;
+}
+
+/* Form styles for light mode */
+.light input, 
+.light textarea, 
+.light select {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.light input:focus, 
+.light textarea:focus, 
+.light select:focus {
+  border-color: #0ea5e9;
+  outline: none;
+  ring-color: #38bdf8;
+}
+
+/* Card styles for light mode */
+.light .bg-gray-800\/50 {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: #e2e8f0;
+}
+
+/* Button styles for light mode */
+.light .bg-gradient-to-r.from-primary-500.to-secondary-500 {
+  background: linear-gradient(to right, #0ea5e9, #a855f7);
+  color: white;
+}
+
+/* Preview panel light mode */
+.light .bg-gray-800 {
+  background-color: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+/* Additional light mode overrides */
+.light .text-gray-300 {
+  color: #64748b;
+}
+
+.light .text-gray-400 {
+  color: #64748b;
+}
+
+.light .border-gray-700 {
+  border-color: #e2e8f0;
+}
+
+.light .text-white {
+  color: #334155;
+}
+
+/* Style fixes for preview panel */
+.light .text-primary-400 {
+  color: #0284c7;
+}
+
+.light .text-secondary-400 {
+  color: #a21caf;
+}
+
+/* Nav styling */
+.light nav {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(8px);
+  border-color: #e2e8f0 !important;
+}
+
+/* Create Assistant title in light mode */
+.light h1.bg-gradient-to-r.bg-clip-text.text-transparent {
+  background-image: linear-gradient(to right, #0284c7, #a21caf);
+} 
