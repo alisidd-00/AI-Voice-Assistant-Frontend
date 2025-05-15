@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { CalendarIcon, UserCircleIcon, SunIcon, MoonIcon, PlusCircleIcon, ClockIcon, LightBulbIcon, PuzzlePieceIcon } from '@heroicons/react/24/outline';
+import { CalendarIcon, UserCircleIcon, SunIcon, MoonIcon, PlusCircleIcon, ClockIcon, LightBulbIcon, PuzzlePieceIcon, CreditCardIcon, HomeIcon } from '@heroicons/react/24/outline';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { memo } from 'react';
@@ -39,6 +39,7 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const isLoginPage = location.pathname === '/login';
+  const isPlansPage = location.pathname === '/plans';
 
   return (
     <nav className={`backdrop-blur-lg border-b sticky top-0 z-50 ${theme === 'dark' 
@@ -67,7 +68,7 @@ const Navbar = () => {
               <NavLink to="/" label="Home" />
             )}
             
-            {!loading && !user && !isLoginPage && (
+            {!loading && !user && !isLoginPage && !isPlansPage && (
               <>
                 <NavButton 
                   onClick={() => scrollToSection('features-section')} 
@@ -82,19 +83,40 @@ const Navbar = () => {
               </>
             )}
             
+            {!loading && !user && !isLoginPage && (
+              <NavLink 
+                to="/plans" 
+                label="Pricing" 
+                icon={<CreditCardIcon className="w-4 h-4" />}
+              />
+            )}
+            
             {!loading && user && (
               <>
+               
                 <NavLink 
                   to="/create" 
                   label="Create Assistant" 
                   className={`flex items-center space-x-1 ${theme === 'dark' ? 'text-primary-400' : 'text-primary-600'}`}
                   icon={<PlusCircleIcon className="w-4 h-4" />}
                 />
+                 <NavLink 
+                  to="/dashboard" 
+                  label="Dashboard" 
+                  className={`flex items-center space-x-1 ${theme === 'dark' ? 'text-primary-400' : 'text-primary-600'}`}
+                  icon={<HomeIcon className="w-4 h-4" />}
+                />
                 <NavLink 
                   to="/schedule" 
                   label="Schedule" 
                   className={`flex items-center space-x-1 ${theme === 'dark' ? 'text-primary-400' : 'text-primary-600'}`}
                   icon={<ClockIcon className="w-4 h-4" />}
+                />
+                <NavLink 
+                  to="/plans" 
+                  label="Subscription" 
+                  className={`flex items-center space-x-1 ${theme === 'dark' ? 'text-primary-400' : 'text-primary-600'}`}
+                  icon={<CreditCardIcon className="w-4 h-4" />}
                 />
               </>
             )}

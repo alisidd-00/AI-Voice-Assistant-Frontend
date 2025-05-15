@@ -206,7 +206,7 @@ const Schedule = () => {
       })
       .catch(err => {
         console.error('Error fetching bookings:', err);
-        setError(`Failed to fetch booking data: ${err.message || 'Unknown error'}`);
+        // setError(`Failed to fetch booking data: ${err.message || 'Unknown error'}`);
         setLoading(false);
       });
   }, [selectedDate, selectedView, assistantId]);

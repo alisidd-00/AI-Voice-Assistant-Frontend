@@ -6,6 +6,8 @@ import CreateAssistant from './pages/CreateAssistant';
 import Login from './pages/Login';
 import AuthCallback from './pages/AuthCallback';
 import Schedule from './pages/Schedule';
+import SubscriptionPlans from './pages/SubscriptionPlans';
+import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import { useTheme } from './contexts/ThemeContext';
 
@@ -28,6 +30,11 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/auth/callback" element={<AuthCallback />} />
+              <Route path="/dashboard" element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              } />
               <Route path="/create" element={
                 <ProtectedRoute>
                   <CreateAssistant />
@@ -38,6 +45,7 @@ function App() {
                   <Schedule />
                 </ProtectedRoute>
               } />
+              <Route path="/plans" element={<SubscriptionPlans />} />
             </Routes>
           </motion.div>
         </main>
